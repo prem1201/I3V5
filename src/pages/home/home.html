@@ -1,0 +1,19 @@
+<ion-content draggable="false">
+  <!-- <page-list></page-list> -->
+  <ion-list>
+
+    <ion-item>
+      <ion-label floating>Username</ion-label>
+      <ion-input type="text" [(ngModel)]='un' ></ion-input>
+    </ion-item>
+{{un}}
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" [(ngModel)]='pwd'></ion-input>
+    </ion-item>
+  
+  </ion-list>
+
+  <button ion-button (click)=signIn(un,pwd)>Sign In</button>
+</ion-content>
+

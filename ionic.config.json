@@ -1,0 +1,7 @@
+{
+  "name": "railApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

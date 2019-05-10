@@ -1,0 +1,83 @@
+<ion-content has-bouncing="false" class="content">
+    <h1>report page</h1> 
+
+   <div class="">
+        <div ng-class="{'active':made === true}" align="center" class="" ng-click="madeOver()">
+            <p>Made Over Trains</p>
+        </div>
+        <div ng-class="{'active':taken === true}" ng-class="class1" align="center" class="" ng-click="takenOver()">
+            <p>Taken Over Trains</p>
+        </div>
+    </div>
+    <div  style="margin-top: 10px;">
+        <ion-col class="filter_lable"> IC Location</ion-col>
+        <ion-scroll direction="x" class="wide-as-needed wide-as-need" style="height: 55px;">
+          <ion-row>  <ion-col><button ion-button *ngFor="let locations of locationsData" (click)="filterLocationData(locations.IC_LOC)" class="button">{{locations.IC_LOC}}</button></ion-col></ion-row>
+        </ion-scroll>
+        <div class="forecastReport">
+            <div class="list_header ">
+                    <ion-row>
+                <ion-col >S.No</ion-col>
+                <ion-col>Train Name</ion-col>
+                <ion-col> Type</ion-col>
+                <ion-col >L/E</ion-col>
+                <ion-col>Engine No</ion-col>
+                <ion-col>Arl/Dep/Cur</ion-col>
+                </ion-row>
+            </div>
+            <div  *ngFor="let item of data">
+                <ion-row>
+                <ion-col >{{item.SRL}}/{{item.SRLTXT}}</ion-col>
+                <ion-col>{{item.T_NAME}}</ion-col>
+                <ion-col> {{item.Type}}</ion-col>
+                <ion-col>{{item.L_E_TO}}</ion-col>
+                <ion-col>{{item.ENGNO1}}<br>{{item.ENGNO2}}<br>{{item.ENGNO3}}</ion-col>
+                <ion-col >{{item.CUR_LOC}}{{item.Time | date:'HH:mm'}}</ion-col>
+            </ion-row>
+            </div>
+        </div>
+        <div style="background-color: #aaa">
+            <div  style="color:#ffffff">
+                <div class="-33" style="padding-left: 20px">
+                    Total Trains
+                </div>
+                <div class="-10" style="background-color: #fff;color:black;text-align: center;">
+                    b
+                </div>
+                <div class="-33" style="padding-left: 20px">
+                    Total Goods
+                </div>
+                <div class="-10" style="background-color: #fff;color:black;text-align: center;">
+                    d
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div  style="color:#ffffff">
+                <div class="-33" style="padding-left: 20px">
+                    M/Over Trains
+                </div>
+                <div class="-10" style="background-color: #fff;color:black;text-align: center;">
+                    b
+                </div>
+                <div class="-33" style="padding-left: 20px">
+                    On Run Trains
+                </div>
+                <div class="-10" style="background-color: #fff;color:black;text-align: center;">
+                    d
+                </div>
+            </div>
+        </div>
+
+
+        <ion-scroll direction="x" class="wide-as-needed" style="height: 55px;">
+            <a *ngFor="let wagons of WagonTypeData" class="button">{{wagons.Type}}</a>
+        </ion-scroll>
+    </div>
+    <div ng-show="taken">
+        Taken Over table
+    </div>
+    <ion-scroll direction="x" class="wide-as-needed" style="height: 55px;">
+            <a *ngFor="let wagons of WagonTypeData" class="button">{{wagons.Type}}</a>
+        </ion-scroll>
+    <li *ngFor="let wagon of WagonTypeData">{{wagon}}</li>
+</ion-content>
